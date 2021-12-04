@@ -7,8 +7,8 @@ import (
 )
 
 // Read reads an input file and returns a slice of lines within it.
-func Read() ([]string, error) {
-	f, err := os.Open("input")
+func Read(name string) ([]string, error) {
+	f, err := os.Open(name)
 	if err != nil {
 		return nil, fmt.Errorf("reading input: %w", err)
 	}

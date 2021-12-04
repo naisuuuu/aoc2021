@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	in, err := input.Read()
+	in, err := input.Read("input")
 	if err != nil {
 		log.Fatal(err)
 	}
