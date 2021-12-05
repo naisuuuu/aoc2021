@@ -114,7 +114,6 @@ func solve(in []string) {
 			x += xinc
 			y += yinc
 		}
-		continue
 	}
 
 	fmt.Println("Part 2:", g.cnt())
