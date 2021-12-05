@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"strings"
@@ -10,11 +11,17 @@ import (
 )
 
 func main() {
-	// in, err := input.Read("input")
+	runInput := flag.Bool("i", false, "run on real input (instead of example)")
+	flag.Parse()
+
 	in, err := input.Read("example")
+	if *runInput {
+		in, err = input.Read("input")
+	}
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	solve(in)
 }
 

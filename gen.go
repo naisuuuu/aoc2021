@@ -20,6 +20,7 @@ const (
 	template = `package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 
@@ -27,10 +28,17 @@ import (
 )
 
 func main() {
+	runInput := flag.Bool("i", false, "run on real input (instead of example)")
+	flag.Parse()
+
 	in, err := input.Read("example")
+	if *runInput {
+		in, err = input.Read("input")
+	}
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	solve(in)
 }
 
