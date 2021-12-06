@@ -25,29 +25,18 @@ func main() {
 }
 
 func fishSim(fish string, days int) (count int) {
-	var ff, nf [9]int
-
+	var ff [9]int
 	for _, n := range conv.AtoiS(fish, ",") {
 		ff[n] += 1
 	}
 
 	for d := 0; d < days; d++ {
-		for i := 8; i >= 0; i-- {
-			switch i {
-			case 0:
-				nf[8] = ff[i]
-				nf[6] += ff[i]
-			default:
-				nf[i-1] = ff[i]
-			}
-		}
-		ff, nf = nf, ff
+		ff[(d+7)%9] += ff[d%9]
 	}
 
 	for _, n := range ff {
 		count += n
 	}
-
 	return
 }
 
