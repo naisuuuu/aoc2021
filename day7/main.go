@@ -1,0 +1,64 @@
+package main
+
+import (
+	"flag"
+	"fmt"
+	"log"
+	"math"
+
+	"github.com/naisuuuu/aoc2021/conv"
+	"github.com/naisuuuu/aoc2021/input"
+)
+
+func main() {
+	runInput := flag.Bool("i", false, "run on real input (instead of example)")
+	flag.Parse()
+
+	in, err := input.Read("example")
+	if *runInput {
+		in, err = input.Read("input")
+	}
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	solve(in)
+}
+
+const highestInt = int(^uint(0) >> 1)
+
+func solve(in []string) {
+	hs := conv.AtoiS(in[0], ",")
+
+	mx := max(hs...)
+	mn := min(hs...)
+
+	lowest := highestInt
+	for i := mn; i <= mx; i++ {
+		var cnt int
+		for _, h := range hs {
+			cnt += int(math.Abs(float64(h - i)))
+		}
+		if cnt < lowest {
+			lowest = cnt
+		}
+	}
+
+	fmt.Println("Part 1:", lowest)
+
+	lowest = highestInt
+	for i := mn; i <= mx; i++ {
+		var cnt int
+		for _, h := range hs {
+			c := int(math.Abs(float64(h - i)))
+			for j := 1; j <= c; j++ {
+				cnt += j
+			}
+		}
+		if cnt < lowest {
+			lowest = cnt
+		}
+	}
+
+	fmt.Println("Part 2:", lowest)
+}
