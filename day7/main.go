@@ -49,9 +49,7 @@ func solve(in []string) {
 		var cnt int
 		for _, h := range hs {
 			c := int(math.Abs(float64(h - i)))
-			for j := 1; j <= c; j++ {
-				cnt += j
-			}
+			cnt += c * (c + 1) / 2
 		}
 		if cnt < lowest {
 			lowest = cnt
