@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/naisuuuu/aoc2021/conv"
+	"github.com/naisuuuu/aoc2021/aocutil"
 	"github.com/naisuuuu/aoc2021/input"
 )
 
@@ -21,7 +21,7 @@ type board [][]int
 func newBoard(s []string) board {
 	var bb board
 	for _, r := range s {
-		bb = append(bb, conv.AtoiS(r, " "))
+		bb = append(bb, aocutil.AtoiS(r, " "))
 	}
 	return bb
 }
@@ -77,7 +77,7 @@ func (b board) sum() int {
 }
 
 func solve(in []string) {
-	numbers := conv.AtoiS(in[0], ",")
+	numbers := aocutil.AtoiS(in[0], ",")
 
 	var boards []board
 	for i := 1; i < len(in); i++ {

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/naisuuuu/aoc2021/conv"
+	"github.com/naisuuuu/aoc2021/aocutil"
 	"github.com/naisuuuu/aoc2021/input"
 )
 
@@ -26,7 +26,7 @@ func main() {
 
 func fishSim(fish string, days int) (count int) {
 	var ff [9]int
-	for _, n := range conv.AtoiS(fish, ",") {
+	for _, n := range aocutil.AtoiS(fish, ",") {
 		ff[n] += 1
 	}
 

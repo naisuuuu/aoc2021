@@ -6,7 +6,7 @@ import (
 	"log"
 	"math"
 
-	"github.com/naisuuuu/aoc2021/conv"
+	"github.com/naisuuuu/aoc2021/aocutil"
 	"github.com/naisuuuu/aoc2021/input"
 )
 
@@ -28,10 +28,10 @@ func main() {
 const highestInt = int(^uint(0) >> 1)
 
 func solve(in []string) {
-	hs := conv.AtoiS(in[0], ",")
+	hs := aocutil.AtoiS(in[0], ",")
 
-	mx := max(hs...)
-	mn := min(hs...)
+	mx := aocutil.Max(hs...)
+	mn := aocutil.Min(hs...)
 
 	lowest := highestInt
 	for i := mn; i <= mx; i++ {

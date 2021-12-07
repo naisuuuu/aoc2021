@@ -6,7 +6,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/naisuuuu/aoc2021/conv"
+	"github.com/naisuuuu/aoc2021/aocutil"
 	"github.com/naisuuuu/aoc2021/input"
 )
 
@@ -29,8 +29,8 @@ type coord [4]int
 
 func newCoord(s string) coord {
 	cs := strings.Split(s, " -> ")
-	a := conv.AtoiS(cs[0], ",")
-	b := conv.AtoiS(cs[1], ",")
+	a := aocutil.AtoiS(cs[0], ",")
+	b := aocutil.AtoiS(cs[1], ",")
 	return coord{a[0], a[1], b[0], b[1]}
 }
 
