@@ -25,15 +25,13 @@ func main() {
 	solve(in)
 }
 
-const highestInt = int(^uint(0) >> 1)
-
 func solve(in []string) {
 	hs := aocutil.AtoiS(in[0], ",")
 
 	mx := aocutil.Max(hs...)
 	mn := aocutil.Min(hs...)
 
-	lowest := highestInt
+	lowest := math.MaxInt
 	for i := mn; i <= mx; i++ {
 		var cnt int
 		for _, h := range hs {
@@ -46,7 +44,7 @@ func solve(in []string) {
 
 	fmt.Println("Part 1:", lowest)
 
-	lowest = highestInt
+	lowest = math.MaxInt
 	for i := mn; i <= mx; i++ {
 		var cnt int
 		for _, h := range hs {
