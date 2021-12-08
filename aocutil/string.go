@@ -2,6 +2,7 @@ package aocutil
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -21,4 +22,10 @@ func AtoiS(s string, sep string) []int {
 		is = append(is, si)
 	}
 	return is
+}
+
+func SortString(w string) string {
+	s := strings.Split(w, "")
+	sort.Strings(s)
+	return strings.Join(s, "")
 }
