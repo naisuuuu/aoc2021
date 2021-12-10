@@ -59,7 +59,7 @@ func main() {
 }
 
 func gen(day, year int) error {
-	dir := fmt.Sprintf("day%d", day)
+	dir := fmt.Sprintf("day%02d", day)
 
 	if err := os.MkdirAll(dir, os.ModePerm); err != nil {
 		return fmt.Errorf("creating dir: %w", err)
