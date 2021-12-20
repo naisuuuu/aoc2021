@@ -7,6 +7,14 @@ import (
 	"strings"
 )
 
+func MustAtoi(s string) int {
+    si, err := strconv.Atoi(s)
+    if err != nil {
+        panic(err)
+    }
+    return si
+}
+
 func AtoiS(s string, sep string) []int {
 	var is []int
 	for _, ss := range strings.Split(s, sep) {
